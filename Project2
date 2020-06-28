@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main(void) {
+  long limit = 4000000,sum = 0;
+  long temp1 = 1, temp2 = 2, holder = 0;
+  for (;temp1 < 4000000 && temp2 < 4000000;)
+  {
+    if(temp1%2 == 0)
+    {
+      sum+=temp1;
+    }
+    if(temp2%2 == 0)
+    {
+      sum+=temp2;
+    }
+    holder = temp1;
+    temp1= temp1+temp2;
+    temp2+=temp1;
+  }
+
+  printf("Total: %ld\n", sum);
+  return 0;
+}
