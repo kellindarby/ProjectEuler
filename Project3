@@ -1,0 +1,48 @@
+//The prime factors of 13195 are 5, 7, 13 and 29.
+
+//What is the largest prime factor of the number 600851475143 ?
+
+#include <stdio.h>
+
+int isPrime(long x);
+
+int main(void)
+{
+  long x = 600851475143;
+  int count = 0;
+  long primer[20];
+
+  for (int i = 2; i < x; i++)
+  {
+    if (x%i == 0)
+    {
+      if(isPrime(i))
+      {
+        primer[count] = i;
+        count++;
+      }
+    }
+    if (i == x)
+    {
+      primer[count] = '0';
+    }
+  }
+
+  printf("The prime factors of %ld are: ", x);
+  for( int i = 0; primer[i] != '0'; i++)
+  {
+    printf(" %ld", primer[i]);
+  }
+}
+
+int isPrime(long x)
+{
+  for (long i = 2; i < x; i++)
+  {
+    if(x%i == 0)
+    {
+      return 0;
+    }
+  }
+  return 1;
+}
